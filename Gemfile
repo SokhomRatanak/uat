@@ -9,7 +9,7 @@ gem "builder", "2.1.2"
 group :test do
   gem "rspec", "1.3.2"
   gem "activesupport", "3.0.7"
-  gem "cucumber", "0.10.2"
+  gem "cucumber"
   gem "akephalos", "0.2.5"
   gem "Selenium", "1.1.14"
   gem "selenium-client", "1.2.18"

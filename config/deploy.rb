@@ -10,7 +10,7 @@ set :default_stage, 'integration'
 set :application, "typo3v4-core"
 set :deploy_to, "/home/jenkins/repo/typo3_src/"
 
-set :repository,  "git.typo3.org/TYPO3v4/Core.git"
+set :repository,  "git://git.typo3.org/TYPO3v4/Core.git"
 set :scm, :git
 set :branch, "master"
 set :deploy_via, :remote_cache

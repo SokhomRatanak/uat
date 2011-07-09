@@ -38,7 +38,7 @@ namespace :git do
   
   desc "Get latest revision"
   task :pull do
-    run "cd #{deploy_to} && git reset --hard && git pull"
+    run "cd #{deploy_to} && git reset --hard && git pull && git submodule update"
     puts "Merged gerrit pull request"
   end
   

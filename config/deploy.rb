@@ -38,13 +38,13 @@ namespace :git do
   
   desc "Get latest revision"
   task :pull do
-    run "cd #{deploy_to} && git reset --hard && git pull && git submodule update"
+    #run "cd #{deploy_to} && git reset --hard && git pull && git submodule update"
     puts "Merged gerrit pull request"
   end
   
   desc "Integrating the patch into master."
   task :cherry_pick do
-    run "cd #{deploy_to} && git fetch #{repository} refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
+    #run "cd #{deploy_to} && git fetch #{repository} refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
     puts "Cherry-picked gerrit pull request - #{configuration[:gerrit_parameters]}"
   end
 end

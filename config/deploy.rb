@@ -26,17 +26,25 @@ set :git_enable_submodules, 1
 depend :local, :command, "git"
 depend :remote, :directory, "#{deploy_to}"
 
+before "git", "git:setup"
 
 namespace :git do
+  desc "Setup git properties"
+  task :setup do
+    run "git config --global user.name 'Mr. Jenkins'"
+    run "git config --global user.email ci-admin@typo3.org"
+    puts "Setup git properties"
+  end
+  
   desc "Get latest revision"
   task :pull do
     run "cd #{deploy_to} && git checkout master && git pull"
-    puts "merge gerrit pull request"
+    puts "Merged gerrit pull request"
   end
   
-  desc "Replace folder 'current' with symlink, if present."
+  desc "Integrating the patch into master."
   task :cherry_pick do
     run "cd #{deploy_to} && git fetch git://git.typo3.org/TYPO3v4/Core refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
-#    run "git status"
+    puts "Cherry-picked gerrit pull request"
   end
 end

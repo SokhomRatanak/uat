@@ -23,3 +23,15 @@ set :git_enable_submodules, 1
 # Creating dependencies if needed
 depend :local, :command, "git"
 depend :remote, :directory, "#{deploy_to}"
+
+namespace :deploy do
+  [:set_permissions, :start, :stop, :restart, :migrate, :finalize_update, :restart].each do |default_task|
+    task default_task do
+      # do nothing
+    end
+  end
+  
+  task :setup, :except => { :no_release => true } do
+    # nothing
+  end
+end

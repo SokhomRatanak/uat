@@ -26,7 +26,16 @@ set :git_enable_submodules, 1
 depend :local, :command, "git"
 depend :remote, :directory, "#{deploy_to}"
 
+before "git", "environment:clean"
 before "git", "git:setup"
+
+namespace :environment do
+  desc "Cleanup environment"
+  task :clean do
+    sudo "./bin/typo3_restore_testsite.sh"
+    puts "Cleaned up environment"
+  end
+end
 
 namespace :git do
   desc "Setup git properties"
@@ -35,7 +44,7 @@ namespace :git do
     run "git config --global user.email ci-admin@typo3.org"
     puts "Setup git properties"
   end
-  
+
   desc "Get latest revision"
   task :pull do
     #run "cd #{deploy_to} && git reset --hard && git pull && git submodule update"
@@ -44,7 +53,7 @@ namespace :git do
   
   desc "Integrating the patch into master."
   task :cherry_pick do
-    #run "cd #{deploy_to} && git fetch #{repository} refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
+    #run "cd #{deploy_to} && git fetch #{gerrit_parameters} && git cherry-pick FETCH_HEAD"
     puts "Cherry-picked gerrit pull request - #{gerrit_parameters}"
   end
 end

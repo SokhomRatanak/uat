@@ -57,7 +57,7 @@ namespace :git do
   end
 end
 
-namespace :test do
+namespace :tests do
   desc "Run tests on project"
   task :execute do
     run "/usr/bin/php /home/testsite/htdocs/typo3/cli_dispatch.phpsh phpunit --log-junit /tmp/phpunit.xml /home/testsite/htdocs/typo3_src/tests/"

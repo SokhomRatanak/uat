@@ -26,8 +26,7 @@ set :git_enable_submodules, 1
 depend :local, :command, "git"
 depend :remote, :directory, "#{deploy_to}"
 
-before "git", "environment:clean"
-before "git", "git:setup"
+before "git", "environment:clean", "git:setup"
 
 namespace :environment do
   desc "Cleanup environment"

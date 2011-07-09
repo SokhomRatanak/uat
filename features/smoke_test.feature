@@ -5,7 +5,7 @@ Visitors should be able to use the website as expected
 
   Scenario: Verify that I'm on the introduction package
     Given I am on homepage
-    Then I should see "Introduction Package" within "#header a"
+    Then I should see "Introduction Package" within "#header h1 a"
 
   Scenario: Verify that the search is working
     Given I am on homepage
@@ -24,4 +24,3 @@ Visitors should be able to use the website as expected
       | Get Started |
       | Examples    |
       | Feedback    |
-

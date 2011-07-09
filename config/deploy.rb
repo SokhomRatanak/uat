@@ -39,6 +39,9 @@ end
 namespace :git do
   desc "Setup git properties"
   task :setup do
+    sudo "./bin/typo3_restore_testsite.sh"
+    puts "Cleaned up environment"
+    
     run "git config --global user.name 'Mr. Jenkins'"
     run "git config --global user.email ci-admin@typo3.org"
     puts "Setup git properties"

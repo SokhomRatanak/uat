@@ -4,9 +4,9 @@ module NavigationHelpers
       when /home/
         ENV['CUCUMBER_HOST']
       when /search/
-        "de/beispiele/test-fuer-inhaltselemente/suchen/"
+        "special-pages/search/"
       when /sitemap/
-        "de/sitemap/"
+        "examples/site-map/"
       else
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"

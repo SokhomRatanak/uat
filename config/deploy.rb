@@ -30,15 +30,13 @@ depend :remote, :directory, "#{deploy_to}"
 namespace :git do
   desc "Get latest revision"
   task :pull do
-    run "cd #{deploy_to}"
-    run "git checkout master && git pull"
+    run "cd #{deploy_to} && git checkout master && git pull"
     puts "merge gerrit pull request"
   end
   
   desc "Replace folder 'current' with symlink, if present."
   task :cherry_pick do
-    run "cd #{deploy_to}"
-    run "git fetch git://git.typo3.org/TYPO3v4/Core refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
-    run "git status"
+    run "cd #{deploy_to} && git fetch git://git.typo3.org/TYPO3v4/Core refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
+#    run "git status"
   end
 end

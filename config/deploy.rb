@@ -42,4 +42,3 @@ namespace :git do
     run "git status"
   end
 end
-end

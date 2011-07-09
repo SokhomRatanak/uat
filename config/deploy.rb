@@ -1,6 +1,8 @@
 # @see http://help.github.com/deploy-with-capistrano/
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
+
+server 'josephson.mocsystems.com', :app, :web, :db
   
 # Defining which stages we use on the server
 set :stages, %w(integration)
@@ -23,15 +25,3 @@ set :git_enable_submodules, 1
 # Creating dependencies if needed
 depend :local, :command, "git"
 depend :remote, :directory, "#{deploy_to}"
-
-namespace :deploy do
-  [:set_permissions, :start, :stop, :restart, :migrate, :finalize_update, :restart].each do |default_task|
-    task default_task do
-      # do nothing
-    end
-  end
-  
-  task :setup, :except => { :no_release => true } do
-    # nothing
-  end
-end

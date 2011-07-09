@@ -44,7 +44,7 @@ namespace :git do
   
   desc "Integrating the patch into master."
   task :cherry_pick do
-    run "cd #{deploy_to} && git fetch git://git.typo3.org/TYPO3v4/Core refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
+    run "cd #{deploy_to} && git fetch #{repository} refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
     puts "Cherry-picked gerrit pull request"
   end
 end

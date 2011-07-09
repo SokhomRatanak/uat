@@ -45,6 +45,6 @@ namespace :git do
   desc "Integrating the patch into master."
   task :cherry_pick do
     run "cd #{deploy_to} && git fetch #{repository} refs/changes/27/3227/1 && git cherry-pick FETCH_HEAD"
-    puts "Cherry-picked gerrit pull request"
+    puts "Cherry-picked gerrit pull request - #{configuration[:gerrit_parameters]}"
   end
 end

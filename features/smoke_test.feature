@@ -5,12 +5,12 @@ Visitors should be able to use the website as expected
 
   Scenario: Verify that I'm on the introduction package
     Given I am on homepage
-    Then I should see "Congratulations" within "h1"
+    Then I should see "Introduction Package" within "h1"
 
   Scenario Outline: The Sitemap on the website covers all pages
     Given I am on sitemap
     Then I should see "<page>"
-    
+
   Examples:
     | Get Started |
     | Examples |

@@ -27,3 +27,9 @@ end
 Then /^I should see a bar$/ do
   pending # express the regexp above with the code you wish you had
 end
+
+When /^I wait until "([^"]*)" is visible$/ do |selector|
+  page.has_css?("#{selector}", :visible => true)
+end
+
+

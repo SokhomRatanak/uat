@@ -9,6 +9,8 @@ module NavigationHelpers
         "examples/site-map/"
       when /customer-login/
         "special-pages/customer-login/"
+       when /backend-login/
+       	"typo3/"
       else
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"

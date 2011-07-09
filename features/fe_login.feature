@@ -16,10 +16,20 @@ As a user "someone" I want to have access to the 'Any login page' only.
     And I fill in "Password:" with "<password>"
     And I press "Login"
     Then I should see "Login failure"
-    
+
     Examples:
       | username     |  password        |
       | customer1    |  wrong_password  |
       | customer2    |  wrong_password  |
       | someone      |  wrong_password  |
       | someone_else |  wrong_password  |
+
+
+  Scenario: Verify that login is possible
+    Given I am on customer-login
+    And I fill in "Username:" with "customer1"
+    And I fill in "Password:" with "customer1"
+    And I press "Login"
+    Then I should see "You can now view the protected pages!"
+    And I should see "Login successful"
+

@@ -67,8 +67,8 @@ namespace :tests do
   desc "Integrating the patch into master."
   task :download_results do
 #    run "cd #{deploy_to} && git fetch #{gerrit_parameters} && git cherry-pick FETCH_HEAD"
-    top.download("/tmp/phpunit.xml", "./build/logs/", :via => :scp, :recursive => true)
-    puts "Cherry-picked gerrit pull request - #{gerrit_parameters}"
+    #top.download("/tmp/phpunit.xml", "./build/logs/", :via => :scp, :recursive => true)
+    puts "Downloading results for phpunit"
   end
 end
 

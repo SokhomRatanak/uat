@@ -7,6 +7,8 @@ module NavigationHelpers
         "special-pages/search/"
       when /sitemap/
         "examples/site-map/"
+      when /customer-login/
+        "special-pages/customer-login/"
       else
         raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
           "Now, go and add a mapping in #{__FILE__}"

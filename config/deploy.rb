@@ -72,3 +72,14 @@ namespace :tests do
   end
 end
 
+
+# Buffer capistrano output per line
+Capistrano::Actor.default_io_proc = Proc.new do |ch, stream, out|
+  ch[stream] ||= ''
+  ch[stream] << out
+  if out[-1..-1] == "\n"
+    level = stream == :err ? :important : :info
+    ch[:actor].logger.send(level, ch[stream], "#{stream} :: #{ch[:host]}")
+    ch[stream] = ''
+  end
+end

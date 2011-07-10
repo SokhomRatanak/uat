@@ -61,7 +61,15 @@ namespace :tests do
   desc "Run tests on project"
   task :execute do
     run "rm -f /tmp/phpunit.xml"
-    run "/usr/bin/php /home/testsite/htdocs/typo3/cli_dispatch.phpsh phpunit --log-junit /tmp/phpunit.xml /home/testsite/htdocs/typo3_src/tests/ || true"
+    #run "/usr/bin/php /home/testsite/htdocs/typo3/cli_dispatch.phpsh phpunit --log-junit /tmp/phpunit.xml /home/testsite/htdocs/typo3_src/tests/ || true"
+    run "/usr/bin/php /home/testsite/htdocs/typo3/cli_dispatch.phpsh phpunit --log-junit /tmp/phpunit.xml /home/testsite/htdocs/typo3_src/tests/ || true" do |channel, stream, data|
+      channel[stream] ||= ''
+      channel[stream] << data
+      if data[-1..-1] == "\n"
+        default_io_proc channel, stream, channel[stream]
+        channel[stream] = ''
+      end
+    end
     puts "UnitTests complete"
   end
   
@@ -69,17 +77,5 @@ namespace :tests do
   task :download_results do
     top.download("/tmp/phpunit.xml", "./build/logs/", :via => :scp, :recursive => true)
     puts "Downloading results for phpunit"
-  end
-end
-
-
-# Buffer capistrano output per line
-Capistrano::Actor.default_io_proc = Proc.new do |ch, stream, out|
-  ch[stream] ||= ''
-  ch[stream] << out
-  if out[-1..-1] == "\n"
-    level = stream == :err ? :important : :info
-    ch[:actor].logger.send(level, ch[stream], "#{stream} :: #{ch[:host]}")
-    ch[stream] = ''
   end
 end

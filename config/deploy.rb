@@ -66,7 +66,7 @@ namespace :tests do
       channel[stream] ||= ''
       channel[stream] << data
       if data[-1..-1] == "\n"
-        default_io_proc channel, stream, channel[stream]
+        puts channel[stream]
         channel[stream] = ''
       end
     end

@@ -60,9 +60,9 @@ end
 namespace :tests do
   desc "Run tests on project"
   task :execute do
-    run "rm /tmp/phpunit.xml"
+    run "rm -f /tmp/phpunit.xml"
     run "/usr/bin/php /home/testsite/htdocs/typo3/cli_dispatch.phpsh phpunit --log-junit /tmp/phpunit.xml /home/testsite/htdocs/typo3_src/tests/ || true"
-    puts "Merged gerrit pull request"
+    puts "UnitTests complete"
   end
   
   desc "Integrating the patch into master."

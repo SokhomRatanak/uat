@@ -9,9 +9,9 @@ gem "ruby-mysql", "~> 2.9.4"
 gem "builder", "2.1.2"
 
 group :test do
-  gem "rspec"
+  gem "rspec", "2.6.0"
   gem "activesupport", "3.0.7"
-  gem "cucumber"
+  gem "cucumber", "1.0.1"
   gem "aruba", "~> 0.4.3"
   gem "akephalos", "0.2.5"
   gem "Selenium", "1.1.14"

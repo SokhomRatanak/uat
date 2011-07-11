@@ -7,6 +7,9 @@ require 'capybara/cucumber'
 require 'capybara/session'
 require 'akephalos'
 
+# Enable CLI Steps for Cucumber
+require 'aruba/cucumber'
+
 # RSpec
 require 'spec/expectations'
 
@@ -33,3 +36,7 @@ end
 
 World(Test::Unit::Assertions)
 World(Capybara)
+
+Before('@slow_process') do
+  @aruba_io_wait_seconds = 15
+end

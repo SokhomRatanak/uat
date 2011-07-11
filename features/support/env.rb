@@ -11,7 +11,7 @@ require 'akephalos'
 require 'aruba/cucumber'
 
 # RSpec
-require 'spec/expectations'
+#require 'spec/expectations'
 
 # TestUnit
 require 'test/unit/assertions'

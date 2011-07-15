@@ -20,16 +20,10 @@ Given /^I am a developer$/ do
   find("##{arg1}").click
 end
 
-Given /^I am thirty$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then /^I should see a bar$/ do
-  pending # express the regexp above with the code you wish you had
-end
-
 When /^I wait until "([^"]*)" is visible$/ do |selector|
   page.has_css?("#{selector}", :visible => true)
 end
 
-
+Given /^I am a backend user$/ do
+  pending # express the regexp above with the code you wish you had
+end

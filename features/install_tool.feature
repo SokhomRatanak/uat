@@ -23,12 +23,12 @@ Scenario: Enabled install tool in backend
 	pending
 	Given I am a backend user
 	And I go to my settings
-	And I click "enable install tool"
+	And I press "enable install tool"
 	Then a file named "typo3conf/ENABLE_INSTALL_TOOL" should exist
 
 Scenario: Disabled install tool in backend
 	pending
 	Given I am a backend user
 	And I go to my settings
-	And I click "enable install tool"
+	And I press "disable install tool"
 	Then a file named "typo3conf/ENABLE_INSTALL_TOOL" should not exist

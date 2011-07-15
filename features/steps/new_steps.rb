@@ -1,3 +1,7 @@
+Given /^PENDING/ do
+  pending
+end
+
 When /^I click on image "([^"]*)"$/ do |arg1|
   find("##{arg1}").click
 end

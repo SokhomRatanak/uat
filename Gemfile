@@ -13,6 +13,8 @@ group :test do
   gem "activesupport", "3.0.7"
   gem "cucumber", "1.0.1"
   gem "aruba", "~> 0.4.3"
+  gem "fakeweb", "~> 1.3"
+  gem "fakefs"
   gem "akephalos", "0.2.5"
   gem "Selenium", "1.1.14"
   gem "selenium-client", "1.2.18"

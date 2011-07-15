@@ -2,7 +2,7 @@
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
-server 'josephson.mocsystems.com', :app, :web, :db
+server 'testsite.typo3-ci.mocsystems.com', :app, :web, :db
   
 # Defining which stages we use on the server
 set :stages, %w(integration)

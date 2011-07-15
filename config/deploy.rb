@@ -10,7 +10,7 @@ set :default_stage, 'integration'
 
 # Set variables used for all stages
 set :application, "typo3v4-core"
-set :deploy_to, "/home/jenkins/repo/typo3_src/"
+set :deploy_to, "/home/typo3-ci/repo/typo3_src/"
 
 set :repository,  "git://git.typo3.org/TYPO3v4/Core.git"
 set :scm, :git
@@ -18,7 +18,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :shared_children, %w() 
 
-set :user, 'jenkins'
+set :user, 'typo3-ci'
 set :ssh_options, { :forward_agent => true }
 set :git_enable_submodules, 1
 
@@ -31,7 +31,7 @@ before "git:pull", "environment:clean", "git:setup"
 namespace :environment do
   desc "Cleanup environment"
   task :clean do
-    sudo "./bin/typo3_restore_testsite.sh"
+    run "/home/typo3-ci/bin/typo3_restore_testsite.sh"
     puts "Cleaned up environment"
   end
 end

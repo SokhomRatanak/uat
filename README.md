@@ -6,7 +6,7 @@ This project helps you get started with User Acceptance Tests.
 
 	gem install bundler
 	git clone git://github.com/typo3-ci/uat.git
-	cd cucumber-tests
+	cd uat
 	bundle install
 	cucumber CUCUMBER_HOST=http://introduction.dev3.mocsystems.com/
 

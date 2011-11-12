@@ -14,7 +14,7 @@ Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://
 	git clone git://github.com/typo3-ci/uat.git
 	cd uat
 	bundle install
-	cucumber CUCUMBER_HOST=http://introduction.dev3.mocsystems.com/
+	bundle exec cucumber CUCUMBER_HOST=http://introduction.dev3.mocsystems.com/
 
 You can change the variable CUCUMBER_HOST to whatever introduction package you may have.
 

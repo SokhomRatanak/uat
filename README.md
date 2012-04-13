@@ -23,11 +23,12 @@ Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://
 
 ## Install
 
-	gem install bundler
+	gem update --system
+	gem install bundler --no-ri --no-rdoc
 	git clone git://github.com/typo3-ci/uat.git
 	cd uat
 	bundle install
-	bundle exec cucumber CUCUMBER_HOST=http://introduction.dev3.mocsystems.com/
+	bundle exec cucumber CUCUMBER_HOST=http://example.com/
 
 You can change the variable CUCUMBER_HOST to whatever introduction package you may have.
 The trailing slash is required.

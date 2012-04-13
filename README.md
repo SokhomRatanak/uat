@@ -52,4 +52,4 @@ Please use this public key to allow ci.typo3.org to access your machine:
 
 ## Links
 
-Testing ExtJS with Cucumber: http://blog.writelesscode.com/blog/2011/01/27/testing-extjs-rails-components-with-cucumber-and-webdriver-in-netzke/
+* Testing ExtJS with Cucumber: http://blog.writelesscode.com/blog/2011/01/27/testing-extjs-rails-components-with-cucumber-and-webdriver-in-netzke/

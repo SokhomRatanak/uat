@@ -4,9 +4,22 @@ This project helps you get started with User Acceptance Tests.
 
 ## Requirements
 
+* The Setup has been tested on MacOSX 10.6 (Snow Leopard) and MacOSX 10.7
+(Lion). Other OS should work too if a Ruby development environment is available (see Installation-Details below).
+
 * Ruby 1.8.7
 
-Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem.
+Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem. You can check the ruby version with:
+
+  $ ruby -v
+  ruby -v
+  ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
+
+* Rubygems > 1.8
+
+  $ gem -v
+  1.8.11
+
 
 ## Install
 
@@ -17,6 +30,18 @@ Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://
 	bundle exec cucumber CUCUMBER_HOST=http://introduction.dev3.mocsystems.com/
 
 You can change the variable CUCUMBER_HOST to whatever introduction package you may have.
+The trailing slash is required.
+
+
+### Setup Ruby on a vanilla Fedora system
+
+Install these packages to get a working Ruby development environment
+running:
+
+  $ yum install libxml2-devel libxslt-devel
+  $ yum install libffi-devel
+  $ yum install ruby-gems ruby-devel
+
 
 ## Jenkins public key
 

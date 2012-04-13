@@ -9,11 +9,15 @@ This project helps you get started with User Acceptance Tests.
 * Ruby 1.8.7
 Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem.
 Check the ruby version with:
-	$ ruby -v
-	ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
+<pre>
+$ ruby -v
+ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
+</pre>
 * Rubygems > 1.8
-	$ gem -v
-	1.8.11
+<pre>
+$ gem -v
+1.8.11
+</pre>
 
 
 ## Install

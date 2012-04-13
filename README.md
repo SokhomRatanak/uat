@@ -55,6 +55,14 @@ Call a single feature test with
 For more details please see https://github.com/cucumber/cucumber/wiki/
 
 
+## Contribute
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Commit, do not mess with Gemfile, or history.
+* Send me a pull request. Bonus points for topic branches.
+
+
 ## Jenkins public key
 
 Please use this public key to allow ci.typo3.org to access your machine:

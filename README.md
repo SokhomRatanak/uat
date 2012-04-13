@@ -32,6 +32,16 @@ You can change the variable CUCUMBER_HOST to whatever introduction package you m
 The trailing slash is required.
 
 
+### Setup Ruby on a vanilla Fedora system
+
+Install these packages to get a working Ruby development environment
+running:
+
+	$ yum install libxml2-devel libxslt-devel
+	$ yum install libffi-devel
+	$ yum install ruby-gems ruby-devel
+
+
 ## Usage
 
 Call all tests with
@@ -43,15 +53,6 @@ Call a single feature test with
 	bundle exec cucumber CUCUMBER_HOST=http://example.com/ features/example.feature
 
 For more details please see https://github.com/cucumber/cucumber/wiki/
-
-### Setup Ruby on a vanilla Fedora system
-
-Install these packages to get a working Ruby development environment
-running:
-
-	$ yum install libxml2-devel libxslt-devel
-	$ yum install libffi-devel
-	$ yum install ruby-gems ruby-devel
 
 
 ## Jenkins public key

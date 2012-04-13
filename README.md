@@ -6,8 +6,7 @@ This project helps you get started with User Acceptance Tests.
 
 * The Setup has been tested on MacOSX 10.6 (Snow Leopard) and MacOSX 10.7
 (Lion). Other OS should work too if a Ruby development environment is available (see Installation-Details below).
-* Ruby 1.8.7
-Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem.
+* Ruby 1.8.7. Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem.
 Check the ruby version with:
 <pre>
 $ ruby -v

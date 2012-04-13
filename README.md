@@ -14,7 +14,6 @@ Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://
 Check the ruby version with:
 
 	$ ruby -v
-	ruby -v
 	ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
 
 * Rubygems > 1.8

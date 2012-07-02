@@ -1,16 +1,6 @@
-require 'uri'
-require 'cgi'
-require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "path"))
-
-module WithinHelpers
-  def with_scope(locator)
-    locator ? within(locator) { yield } : yield
-  end
-end
-World(WithinHelpers)
-
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
+  [404,500,403].should_not include(page.status_code)
 end
 
 When /^(?:|I )go to (.+)$/ do |page_name|
@@ -32,73 +22,6 @@ end
 When /^(?:|I )click link with xpath "([^"]*)"(?: within "([^"]*)")?$/ do |xpath, selector|
   with_scope(selector) do
     find(:xpath, xpath).click
-  end
-end
-
-When /^(?:|I )fill in "([^"]*)" with "([^"]*)"(?: within "([^"]*)")?$/ do |field, value, selector|
-  with_scope(selector) do
-    fill_in(field, :with => value)
-  end
-end
-
-When /^(?:|I )fill in "([^"]*)" for "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
-  with_scope(selector) do
-    fill_in(field, :with => value)
-  end
-end
-
-# Use this to fill in an entire form with data from a table. Example:
-#
-#   When I fill in the following:
-#     | Account Number | 5002       |
-#     | Expiry date    | 2009-11-01 |
-#     | Note           | Nice guy   |
-#     | Wants Email?   |            |
-#
-# TODO: Add support for checkbox, select og option
-# based on naming conventions.
-#
-When /^(?:|I )fill in the following(?: within "([^"]*)")?:$/ do |selector, fields|
-  with_scope(selector) do
-    fields.rows_hash.each do |name, value|
-      When %{I fill in "#{name}" with "#{value}"}
-    end
-  end
-end
-
-When /^(?:|I )select "([^"]*)" from "([^"]*)"(?: within "([^"]*)")?$/ do |value, field, selector|
-  with_scope(selector) do
-    select(value, :from => field)
-  end
-end
-
-When /^(?:|I )check "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  with_scope(selector) do
-    check(field)
-  end
-end
-
-When /^(?:|I )check xpath "([^"]*)"(?: within "([^"]*)")?$/ do |xpath, selector|
-  with_scope(selector) do
-    find(:xpath, xpath).click
-  end
-end
-
-When /^(?:|I )uncheck "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  with_scope(selector) do
-    uncheck(field)
-  end
-end
-
-When /^(?:|I )choose "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  with_scope(selector) do
-    choose(field)
-  end
-end
-
-When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"(?: within "([^"]*)")?$/ do |path, field, selector|
-  with_scope(selector) do
-    attach_file(field, path)
   end
 end
 
@@ -132,7 +55,6 @@ end
 
 
 Then /^(?:|I )should see xpath "([^"]*)"(?: within "([^"]*)")?$/ do |regexp, selector|
-#  regexp = Regexp.new(regexp)
   with_scope(selector) do
     if page.respond_to? :should
       page.should have_xpath(regexp)
@@ -175,52 +97,6 @@ Then /^(?:|I )should not see xpath "([^"]*)"(?: within "([^"]*)")?$/ do |regexp,
   end
 end
 
-Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain "([^"]*)"$/ do |field, selector, value|
-  with_scope(selector) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should
-      field_value.should =~ /#{value}/
-    else
-      assert_match(/#{value}/, field_value)
-    end
-  end
-end
-
-Then /^the "([^"]*)" field(?: within "([^"]*)")? should not contain "([^"]*)"$/ do |field, selector, value|
-  with_scope(selector) do
-    field = find_field(field)
-    field_value = (field.tag_name == 'textarea') ? field.text : field.value
-    if field_value.respond_to? :should_not
-      field_value.should_not =~ /#{value}/
-    else
-      assert_no_match(/#{value}/, field_value)
-    end
-  end
-end
-
-Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should be checked$/ do |label, selector|
-  with_scope(selector) do
-    field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      field_checked.should be_true
-    else
-      assert field_checked
-    end
-  end
-end
-
-Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |label, selector|
-  with_scope(selector) do
-    field_checked = find_field(label)['checked']
-    if field_checked.respond_to? :should
-      field_checked.should be_false
-    else
-      assert !field_checked
-    end
-  end
-end
-
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -246,3 +122,60 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+Given /^PENDING/ do
+  pending
+end
+
+
+Given /^(?:|I )open website (.+)$/ do |url|
+  visit url
+end
+
+When /^I click on image "([^"]*)"$/ do |arg1|
+  find("##{arg1}").click
+end
+
+When /^I click on element "([^"]*)"$/ do |arg1|
+  find("#{arg1}").click
+end
+
+Then /^I should see a date within "([^"]*)"$/ do |selector|
+  with_scope(selector) do
+      page.text.should match(/(\d{2})\.(\d{2})\.(\d{4})/)
+  end
+end
+
+Then /^I wait for (\d+) seconds*$/ do |seconds|
+  sleep seconds.to_i
+end
+
+Then /^the element "([^"]*)" should be visible$/ do |element|
+   page.evaluate_script("jQuery('#{selector_for(element)}').is(':visible')").should be_true
+end
+
+Then /^the element "([^"]*)" should not be visible$/ do |element|
+   page.evaluate_script("jQuery('#{selector_for(element)}').is(':visible')").should be_false
+end
+
+Given /^I hover over the "([^"]*)"$/ do |element|
+  element = selector_for(element)
+  page.execute_script("jQuery('#{element}').trigger('mouseenter')")
+end
+
+Given /^I am logged in$/ do
+  page.driver.browser.credentials = "user:pw"
+end
+
+When /^I click on the element "([^"]*)"$/ do |element|
+  element = find(element)
+  element.click
+end
+
+Then /^I should have (?:at least )?"(\d) ([^"]*)" within "([^"]*)"$/ do |number_of_elements, selector, parent|
+  with_scope(parent) do
+    elements = all(selector_for(selector))
+    elements.size.should >= number_of_elements.to_i
+  end
+end
+

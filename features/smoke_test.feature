@@ -14,7 +14,6 @@ Visitors should be able to use the website as expected
     Then I should see "Search for" within ".tx-indexedsearch-whatis"
     And I should see "examples" within ".tx-indexedsearch-sw"
     And I should see "Displaying results 1 to" within ".tx-indexedsearch-browsebox"
-    And I should see "32" within ".tx-indexedsearch-browsebox"
 
   Scenario Outline: The Sitemap on the website covers all pages
     Given I am on sitemap

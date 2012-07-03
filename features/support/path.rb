@@ -14,8 +14,7 @@ module NavigationHelpers
        when /install-tool/
         "typo3/install/"
       else
-        raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
-          "Now, go and add a mapping in #{__FILE__}"
+        ENV['CUCUMBER_HOST'] + page_name
       end
     end
 end

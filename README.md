@@ -2,12 +2,16 @@
 
 This project helps you get started with User Acceptance Tests.
 
+Have a look in features/smoke_test.feature to see how easy it is to
+write simple but yet effective tests.
+
 ## Requirements
 
 * The Setup has been tested on MacOSX 10.6 (Snow Leopard) and MacOSX 10.7
 (Lion). Other OS should work too if a Ruby development environment is available (see Installation-Details below).
-* Ruby 1.8.7. Ruby 1.9.2 is not supported yet, due to an issue with the `johnson` gem (http://isitruby19.com/johnson) which is needed by the `capybara-envjs` gem.
-Check the ruby version with:
+* Tested with Ruby 1.8.7 and Ruby 1.9.3
+Check your Ruby version with these commands (output may vary due to your
+Ruby version):
 <pre>
 $ ruby -v
 ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
@@ -26,10 +30,10 @@ $ gem -v
 	git clone git://github.com/typo3-ci/uat.git
 	cd uat
 	bundle install
-	bundle exec cucumber CUCUMBER_HOST=http://example.com/
+	bundle exec cucumber CUCUMBER_HOST=http://demo.typo3.org/
 
 You can change the variable CUCUMBER_HOST to whatever introduction package you may have.
-The trailing slash is required.
+*The trailing slash is required.*
 
 
 ### Setup Ruby on a vanilla Fedora system
@@ -46,11 +50,11 @@ running:
 
 Call all tests with
 
-	bundle exec cucumber CUCUMBER_HOST=http://example.com/
+	bundle exec cucumber CUCUMBER_HOST=http://demo.typo3.org/
 
 Call a single feature test with
 
-	bundle exec cucumber CUCUMBER_HOST=http://example.com/ features/example.feature
+	bundle exec cucumber CUCUMBER_HOST=http://demo.typo3.org/ features/example.feature
 
 For more details please see https://github.com/cucumber/cucumber/wiki/
 
@@ -62,15 +66,3 @@ For more details please see https://github.com/cucumber/cucumber/wiki/
 * Commit, do not mess with Gemfile, or history.
 * Send me a pull request. Bonus points for topic branches.
 
-
-## Jenkins public key
-
-Please use this public key to allow ci.typo3.org to access your machine:
-
-	ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAwHIC3bY+2Vth2rGjfkUELHaAZME6z4PU+L53Enlkyo8+MhFWfByVWSWugGSyqeOM2Z+ThHBS8mZ+xmR4vRU1L/mQ9KpcNkClkikhpkBeRvJ+OFP5QdjR8yEz0kz8DmvMlrAL4gd6PuzrWSQluTmGto+TBeE38G210xgDAu1jgk6+V530BO/+7OJ2InCWOlDJXmn3e47XIMddt7jr4gfwdzNp/gdeYki54fp3Sx/Wa88WdwfsCLCyYmfSp+Ld9ncmeS7Hp3R/aL6C3qeLQYsV0DgjtJm8h3NAh/fldbZ91x4vCxpAR0ccSuDUeGOJO388wvxVibmEI66SF96shOS41w== jenkins@ci.typo3.org
-
-
-## Links
-
-* Testing ExtJS with Cucumber: http://blog.writelesscode.com/blog/2011/01/27/testing-extjs-rails-components-with-cucumber-and-webdriver-in-netzke/
-* Directly testing PHP code: https://github.com/cucumber/cucumber/wiki/PHP

@@ -1,4 +1,3 @@
-@smoketest
 Feature: Login as a frontend user
 In order to see special pages restricted for anonymous visitors
 As a registered user I should be able to see content other visitors may not see

@@ -1,6 +1,5 @@
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
-  [404,500,403].should_not include(page.status_code)
 end
 
 When /^(?:|I )go to (.+)$/ do |page_name|
@@ -67,7 +66,6 @@ Then /^(?:|I )should not see \/([^\/]*)\/(?: within "([^"]*)")?$/ do |regexp, se
 end
 
 Then /^(?:|I )should not see xpath "([^"]*)"(?: within "([^"]*)")?$/ do |regexp, selector|
-#  regexp = Regexp.new(regexp)
   with_scope(selector) do
     page.should have_no_xpath(regexp)
   end
@@ -75,7 +73,7 @@ end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
-    current_path.should == path_to(page_name)
+  current_path.should == path_to(page_name)
 end
 
 Then /^(?:|I )should have the following query string:$/ do |expected_pairs|

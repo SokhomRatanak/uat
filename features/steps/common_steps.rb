@@ -84,11 +84,6 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
 
   actual_params.should == expected_params
 end
-end
-
-Then /^show me the page$/ do
-  save_and_open_page
-end
 
 Given /^PENDING/ do
   pending

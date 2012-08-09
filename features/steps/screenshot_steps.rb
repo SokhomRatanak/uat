@@ -9,3 +9,7 @@ Then /^I take a screenshot$/ do
   @screenshot_counter += 1
 end
 
+Then /^show me the page$/ do
+  save_and_open_page
+end
+

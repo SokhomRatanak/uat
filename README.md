@@ -22,13 +22,13 @@ Cucumber allows us to write powerful tests in plain English:
 * Tested with Ruby 1.8.7 and Ruby 1.9.3
 Check your Ruby version with these commands (output may vary due to your Ruby version):
 ```
-$ ruby -v
-ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
+  $ ruby -v
+  ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
 ```
 * Rubygems > 1.8
 ```
-$ gem -v
-1.8.11
+  $ gem -v
+  1.8.11
 ```
 
 ## Install

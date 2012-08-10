@@ -7,12 +7,11 @@ This document helps you to set up the environment for running User Acceptance Te
 Cucumber is a [Rubygem](http://rubygems.org/gems/cucumber) written in [Ruby library](http://www.ruby-lang.org). The official website is [http://cukes.info/](http://cukes.info/).
 
 Cucumber allows us to write powerful tests in plain English:
-<pre><code class="ruby">
+```ruby
   Scenario: I see a warm welcome message
     Given I am on "home"
     Then I should see "Welcome!"
-</code></pre>
-
+```
 
 ## Installation
 
@@ -22,15 +21,15 @@ Cucumber allows us to write powerful tests in plain English:
 * Other OS should work too if a Ruby development environment is available (see Installation-Details below).
 * Tested with Ruby 1.8.7 and Ruby 1.9.3
 Check your Ruby version with these commands (output may vary due to your Ruby version):
-<pre>
+```
 $ ruby -v
 ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
-</pre>
+```
 * Rubygems > 1.8
-<pre>
+```
 $ gem -v
 1.8.11
-</pre>
+```
 
 ## Install
 
@@ -58,15 +57,20 @@ This installation requires a 64bit system. See [https://github.com/jonleighton/p
 
 1. Download this file to your Download folder: [http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-x86_64-dynamic.tar.bz2](http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-x86_64-dynamic.tar.bz2)
 2. Open the Terminal and run these commands (*Do NOT change the path names!*):
-<pre>
+```
 cd ~/Downloads/
 sudo tar xvjf phantomjs-1.6.1-linux-*-dynamic.tar.bz2 -C /usr/local
 sudo ln -s /usr/local/phantomjs-1.6.1-linux*/bin/phantomjs /usr/local/bin/phantomjs
-</pre>
+```
 3. Install XMLlib header for "nokogiri requirements":http://nokogiri.org/tutorials/installing_nokogiri.html
-<pre>sudo apt-get install libxslt-dev libxml2-dev</pre>
+```
+sudo apt-get install libxslt-dev libxml2-dev
+```
 4. Now run this command:
-<pre>bundle</pre>This can take a while because it downloads and installs all the ruby libraries needed to run the tests.
+```
+bundle
+```
+This can take a while because it downloads and installs all the ruby libraries needed to run the tests.
 
 
 ### Setup Ruby on a vanilla Fedora system
@@ -97,7 +101,7 @@ To call a specific test call `cucumber` like this:
 ## File structure
 
 This is the file structure in details:
-<pre>
+```
 .
 ├── Gemfile                    <- Information about Rubygems we use
 ├── Gemfile.lock               <- Dependencies for all Rubygems we use
@@ -115,7 +119,7 @@ This is the file structure in details:
         ├── path.rb            <- Translate URL paths to keywords. Example: /menu/sitemap => "sitemap". This is useful to make the tests more readable but can add extra complexity. Handle with care!
         ├── selectors.rb       <- Translate CSS selectors to keywords. Example: #content_main => "content". This is useful to make the tests more readable but can add extra complexity. Handle with care!
         └── with.rb            <- Register methods to make steps more flexible
-</pre>
+```
 
 # Questions
 

@@ -21,15 +21,14 @@ Cucumber allows us to write powerful tests in plain English:
 * Other OS should work too if a Ruby development environment is available (see Installation-Details below).
 * Tested with Ruby 1.8.7 and Ruby 1.9.3
 Check your Ruby version with these commands (output may vary due to your Ruby version):
-```
-  $ ruby -v
-  ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
-```
+
+    $ ruby -v
+    ruby 1.8.7 (2011-06-30 patchlevel 352) [i686-darwin10.8.0]
+
 * Rubygems > 1.8
-```
-  $ gem -v
-  1.8.11
-```
+
+    $ gem -v
+    1.8.11
 
 ## Install
 
@@ -44,9 +43,9 @@ All required Rubygems come with the `Gemfile` and are installed by Bundler.
 
 Update your Rubygems environment and install `bundler` and `phantomjs`:
 
-	gem update --system
-	gem install bundler --no-ri --no-rdoc
-	brew install phantomjs
+    gem update --system
+    gem install bundler --no-ri --no-rdoc
+    brew install phantomjs
 
 Now Install the XML libs required by [nokogiri requirements](http://nokogiri.org/tutorials/installing_nokogiri.html).
 	
@@ -57,19 +56,19 @@ This installation requires a 64bit system. See [https://github.com/jonleighton/p
 
 1. Download this file to your Download folder: [http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-x86_64-dynamic.tar.bz2](http://phantomjs.googlecode.com/files/phantomjs-1.6.1-linux-x86_64-dynamic.tar.bz2)
 2. Open the Terminal and run these commands (*Do NOT change the path names!*):
-```
-cd ~/Downloads/
-sudo tar xvjf phantomjs-1.6.1-linux-*-dynamic.tar.bz2 -C /usr/local
-sudo ln -s /usr/local/phantomjs-1.6.1-linux*/bin/phantomjs /usr/local/bin/phantomjs
-```
+
+    $ cd ~/Downloads/
+    $ sudo tar xvjf phantomjs-1.6.1-linux-*-dynamic.tar.bz2 -C /usr/local
+    $ sudo ln -s /usr/local/phantomjs-1.6.1-linux*/bin/phantomjs /usr/local/bin/phantomjs
+
 3. Install XMLlib header for "nokogiri requirements":http://nokogiri.org/tutorials/installing_nokogiri.html
-```
-sudo apt-get install libxslt-dev libxml2-dev
-```
+
+    sudo apt-get install libxslt-dev libxml2-dev
+
 4. Now run this command:
-```
-bundle
-```
+
+    bundle
+
 This can take a while because it downloads and installs all the ruby libraries needed to run the tests.
 
 
@@ -77,25 +76,25 @@ This can take a while because it downloads and installs all the ruby libraries n
 
 Install these packages to get a working Ruby development environment running:
 
-	$ yum install libxml2-devel libxslt-devel
-	$ yum install libffi-devel
-	$ yum install ruby-gems ruby-devel
+    $ yum install libxml2-devel libxslt-devel
+    $ yum install libffi-devel
+    $ yum install ruby-gems ruby-devel
 
 
 ## Running the tests
 
 Checkout the repo, run `bundle` and call `cucumber`:
 
-	git clone git://github.com/typo3-ci/uat.git
-	cd uat
-	bundle
-	cucumber
+    git clone git://github.com/typo3-ci/uat.git
+    cd uat
+    bundle
+    cucumber
 
 All tests are stored in `.feature`-files that are stored under the folder `features`.
 
 To call a specific test call `cucumber` like this:
 
-	cucumber features/example.feature
+    cucumber features/example.feature
 
 
 ## File structure

@@ -32,12 +32,11 @@ In order to access backend
     And I take a screenshot
 
   Scenario: Content elements are available
-    Given PENDING
     When I follow "Page" within "li#web_layout"
     And I follow "Welcome to TYPO3" within "div#typo3-pagetree-tree"
     Then I should have "1 iframe" within "div#typo3-contentContainer"
     # Then I take a screenshot
-    Then I should see "Path: /Home/"
+    Then iframe "content" should include "Home/"
     # Then I take a screenshot
-    And I should see "We also offer a demo of the"
+    And iframe "content" should include "Show hidden content elements"
 
